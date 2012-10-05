@@ -2,13 +2,14 @@ from django.http import HttpResponseServerError
 from django.shortcuts import render_to_response
 from datetime import datetime
 from models import Maintenance
+from django.core.urlresolvers import reverse
 
 
 
 class MaintenanceMiddleware(object):
     
     def process_request(self, request):
-        if request.path.startswith("/admin"):
+        if request.path.startswith(reverse("admin:index")):
             return None
         
         now = datetime.now()
