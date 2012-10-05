@@ -9,7 +9,7 @@ from django.core.urlresolvers import reverse
 class MaintenanceMiddleware(object):
     
     def process_request(self, request):
-        if request.path.startswith(reverse("admin:index")):
+        if request.path.startswith(reverse("admin:index")) or request.user.is_superuser:
             return None
         
         now = datetime.now()
