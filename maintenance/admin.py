@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from models import Maintenance, MaintenanceFilter
+from .models import Maintenance, MaintenanceFilter
 
 class MaintenanceFilterInline(admin.TabularInline):
     model = MaintenanceFilter
